@@ -6,5 +6,5 @@
 ## remove #
 # SlackToken: your slack tocken
 # SlackChannelsIds: your slack channel ids
-# SlackAdminNicknames: "user1.user2" # comma sperated 
+# SlackAdminNicknames: "user1,user2" # comma seperated 
 # SlackValidCommands: "cmd1,cmd2" # comma seperated
