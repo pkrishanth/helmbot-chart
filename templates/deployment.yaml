@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+    version: "{{ .Values.imageTag }}"
+spec:
+  replicas: {{default 1 .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+        version: "{{ .Values.imageTag }}"
+    spec:
+      containers:
+      - name: {{ template "fullname" . }}
+        image: "pkrishnath/helmbot-amd64:1.0"
+        imagePullPolicy: Always
+        env:
+        - name: HELMBOT_SLACK_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}
+              key: helmbot_slack_token
+        - name: HELMBOT_SLACK_CHANNELS_IDS
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}
+              key: helmbot_slack_channels_ids
+        - name: HELMBOT_SLACK_ADMINS_NICKNAMES
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}
+              key: helmbot_slack_admins_nicknames
+        - name: HELMBOT_SLACK_VALID_COMMANDS
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "fullname" . }}
+              key: helmbot_slack_valid_commands

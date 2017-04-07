@@ -1,0 +1,15 @@
+apiVersion: v1
+description: A Helm chart for Kubernetes
+name: helmbot
+version: 0.0.1
+description: Chart for helmbot
+keywords:
+  - kubernetes
+  - helm
+  - chatbot
+  - slack
+maintainers:
+  - name: krishnath poologanathan
+    email: pkrishnath@gmail.com
+engine: gotpl
+#  - https://github.com/Masterminds/sprig

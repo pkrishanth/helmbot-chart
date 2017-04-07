@@ -1,0 +1,10 @@
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+# name: value
+
+## Specify slack
+## remove #
+# SlackToken: your slack tocken
+# SlackChannelsIds: your slack channel ids
+# SlackAdminNicknames: "user1.user2" # comma sperated 
+# SlackValidCommands: "cmd1,cmd2" # comma seperated
